@@ -6,17 +6,19 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes:Routes = [
   { path: "search", component: SearchComponent },
   { path: "", redirectTo: "search", pathMatch: 'full' },
-  { path: "**", redirectTo: "search" }
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
