@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
+import { SearchModule, SearchComponent } from './search/search.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes:Routes = [
@@ -17,14 +17,14 @@ const routes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    HttpModule
+    HttpModule,
+    SearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
