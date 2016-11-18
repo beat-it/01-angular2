@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'search-bar',
@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
+  @Output()
+  search = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  search(query:string) {
-    console.log("Search for", query);
+  handleSearch(query:string) {
+    console.log("SearchBar: Search for", query);
+    this.search.emit(query);
     return false;
     // navratova hodnota event handleru. false zabrani browseru pokracovat vo
     // svojom normalnom spracovani eventu (odoslat formular)
