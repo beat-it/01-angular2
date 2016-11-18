@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/beat-it/01-angular2/issues"
   },
-  "homepage": "https://github.com/beat-it/01-angular2#readme"
+  "homepage": "https://github.com/beat-it/01-angular2#readme",
+  "devDependencies": {
+    "angular-cli": "^1.0.0-beta.20-4"
+  }
 }
