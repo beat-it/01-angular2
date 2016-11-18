@@ -7,7 +7,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 
-const routes:Routes = [];
+const routes:Routes = [
+  { path: "search", component: SearchComponent },
+  { path: "", redirectTo: "search", pathMatch: 'full' },
+  { path: "**", redirectTo: "search" }
+];
 
 @NgModule({
   declarations: [
