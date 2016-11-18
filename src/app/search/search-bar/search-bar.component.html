@@ -1,1 +1,8 @@
-<input placeholder="Hľadaj" size=80>
+<form (submit)="search(q.value)">
+<!-- zapis (event) na elemente prida event handler. Hodnota atributu je volanie
+     metody komponentu -->
+<input placeholder="Hľadaj" size=80 name="q" #q>
+<!-- zapis #q umozni odkazovat na DOM element ako "q" v ramci sablony, alebo z
+     komponentu pomocou @ViewChild -->
+<input type="submit" value="Hľadaj">
+</form>

@@ -12,4 +12,11 @@ export class SearchBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  search(query:string) {
+    console.log("Search for", query);
+    return false;
+    // navratova hodnota event handleru. false zabrani browseru pokracovat vo
+    // svojom normalnom spracovani eventu (odoslat formular)
+  }
+
 }
