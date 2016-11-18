@@ -1,0 +1,19 @@
+{
+  "name": "angular2",
+  "version": "1.0.0",
+  "description": "Beat.IT 01 - Angular 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beat-it/01-angular2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beat-it/01-angular2/issues"
+  },
+  "homepage": "https://github.com/beat-it/01-angular2#readme"
+}
