@@ -1,30 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { ProductResponse } from '../../api';
 
 export type SearchQuery = string;
-
-export type SearchResultItem = {
-  id: string,
-  name: string,
-  price: number,
-  description: string,
-  image: string
-};
-
-export type SearchResult = {
-   results: SearchResultItem[];
-}
 
 export class SearchService {
 
   constructor() { }
 
-  search(query:SearchQuery) : Promise<SearchResult> {
+  search(query:SearchQuery) : Promise<ProductResponse> {
     console.log("SearchService: search",query);
     // vraciame asynchronny objekt - prislub ukoncenia vyhladavania.
-    return new Promise<SearchResult>(
+    return new Promise<ProductResponse>(
       resolve =>
         // posli vysledok o pol sekundy
-        window.setTimeout(() => resolve({results:[]}), 500));
+        window.setTimeout(() => resolve({status:"OK", data:[]}), 500));
   }
 }
