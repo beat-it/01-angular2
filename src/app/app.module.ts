@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchModule, SearchComponent } from './search/search.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CartService } from './cart/cart.service';
 
 const routes:Routes = [
   { path: "search", component: SearchComponent },
@@ -17,7 +18,7 @@ const routes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,9 @@ const routes:Routes = [
     HttpModule,
     SearchModule
   ],
-  providers: [],
+  providers: [
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
