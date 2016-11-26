@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductComponent } from './product-list/product.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
@@ -12,7 +13,8 @@ export * from './search.service';
   imports: [
     CommonModule
   ],
-  declarations: [ProductListComponent, SearchBarComponent, SearchComponent],
+  declarations: [ProductListComponent, SearchBarComponent, SearchComponent,
+    ProductComponent],
   providers: [SearchService],
 })
 export class SearchModule { }

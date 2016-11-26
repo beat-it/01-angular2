@@ -1,0 +1,38 @@
+<div class="product">
+    <div class="blur">
+        <h3>
+            {{product.name}}
+        </h3>
+        <div class="star-container">
+            <!-- keďže svedomie mi nedovolí vytvoriť si pole dĺžky zopodovedajúcej
+                 počtu hviezdičiek, budem si musieť napísať direktívu -->
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+        </div>
+        <div class="image-container">
+            <img src="{{product.image.thumbnail_url}}" *ngIf="product.image" alt="{{product.name}}"/>
+        </div>
+    </div>
+    <div class="text-container">
+        <a class="price">
+           <!-- ďalšia direktíva by prekladala meny na značky. -->
+            {{product.price}}€
+        </a>
+        <!-- handler nemusí odkazovať iba na metódu, môže obsahovať aj zložitejší
+             kód. Ale radšej nie príliš -->
+        <a (click)="order.emit(product.id)" class="button add-to-cart-button">
+            Objednať
+        </a>
+        <div class="clear"></div>
+    </div>
+    <div class="description-container">
+        <span>
+            <h4>
+                {{product.name}}
+            </h4>
+            {{product.description}}
+        </span>
+    </div>
+</div>

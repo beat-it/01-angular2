@@ -1,37 +1,26 @@
 <div class="container">
     <div class="products-container">
-      <div class="product">
-          <div class="blur">
-              <h3>
-                  ZiZi
-              </h3>
-              <div class="star-container">
-                  <span class="star"></span>
-                  <span class="star"></span>
-                  <span class="star"></span>
-                  <span class="star"></span>
-              </div>
-              <div class="image-container">
-                  <img src="http://placehold.it/200x250/ffffff" alt="Product pic"/>
-              </div>
-          </div>
-          <div class="text-container">
-              <a class="price">
-                  150€
-              </a>
-              <a href="/add-to-cart" class="button add-to-cart-button">
-                  Objednať
-              </a>
-              <div class="clear"></div>
-          </div>
-          <div class="description-container">
-              <span>
-                  <h4>
-                      ZiZi
-                  </h4>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet neque ultricies suscipit congue. Pellentesque iaculis mi nec placerat condimentum. Nullam at metus volutpat, gravida eros ac, aliquam metus. Nullam convallis, mi at luctus convallis, turpis risus pretium neque, nec auctor purus lectus sit amet enim. Nunc porta neque in varius pretium. Vivamus lacinia metus eget dui aliquam, sed finibus tellus interdum.
-              </span>
-          </div>
-      </div>
-    </div>
+      <!-- Atribúty s hviezdičkou sa volajú štrukturálne direktívy, lebo
+           odoberajú, alebo pridávajú elementy v pohľade. ngFor používa
+           svojskú syntax na iterovanie poľa.
+
+           Krabicové zátvorky [] definujú väzbu smerom dnu -
+             vstupný parameter product je naviazaný na premennú product.
+
+           Banánové zátvorky () definujú väzbu smerom von -
+             reakciou na udalosť order komponentu ProductComponent je vykonanie
+             this.order.emit($event) - a teda vyvolanie rovnakej udalosti
+             na komponente ProductListComponent.
+
+           Ďalšou vecou, ktorá stojí za povšimnutie je, že sa snažíme
+           obmedzovať komunikáciu komponentu s vonkajším svetom a tlačiť
+           rozhodnutie o tom, čo sa má vykonať čo najvyššie v strome komponentov.
+           To uľahčuje znovupoužitie a testovanie komponentov.
+
+           V prípade vyhľadávania nechávame bussiness logiku na komponente
+           SearchComponent. -->
+      <product *ngFor="let product of products" [product]="product"
+         (order)="order.emit($event)">
+      </product>
   </div>
+</div>
