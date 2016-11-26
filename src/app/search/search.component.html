@@ -1,8 +1,12 @@
-<p>
-  <!-- Rovnako ako na HTML event sa reaguje aj na specificke eventy nasich
-  komponentov. $e odkazuje na payload udalosti, v nasom pripade string s otazkou
-  na vyhladavanie -->
-  <search-bar (search)="search($event)"></search-bar>
-</p>
+<div id="banner-container">
+    <div class="container">
+        <span class="text">
+        </span>
+        <!-- Rovnako ako na HTML event sa reaguje aj na specificke eventy nasich
+        komponentov. $e odkazuje na payload udalosti, v nasom pripade string s otazkou
+        na vyhladavanie -->
+        <search-bar (search)="search($event)"></search-bar>
+    </div>
+</div>
 <product-list>
 </product-list>

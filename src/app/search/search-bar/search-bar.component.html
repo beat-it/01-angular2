@@ -1,8 +1,10 @@
 <form (submit)="handleSearch(q.value)">
+  <div id="search-container" class="shadow-container">
 <!-- zapis (event) na elemente prida event handler. Hodnota atributu je volanie
      metody komponentu -->
-<input placeholder="Hľadaj" size=80 name="q" #q>
+<input class="search-input" placeholder="Hľadaj" size=80 name="q" #q>
 <!-- zapis #q umozni odkazovat na DOM element ako "q" v ramci sablony, alebo z
      komponentu pomocou @ViewChild -->
 <input type="submit" value="Hľadaj">
+</div>
 </form>

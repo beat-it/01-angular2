@@ -1,8 +1,22 @@
 <h1>eShop</h1>
 <nav>
-  <a routerLink="/search">Vyhľadávanie</a>
-  <a routerLink="/cart">Košík</a>
+  <div class="container">
+      <ul>
+          <li>
+              <a routerLink="/search">Vyhľadávanie</a>
+          </li>
+          <li>
+              <a routerLink="/cart">Košík</a>
+          </li>
+      </ul>
+      <div id="cart-container">
+          <a routerLink="/cart">
+              0 ks za 0€
+          </a>
+      </div>
+      <div class="clear"></div>
+  </div>
 </nav>
-<main>
+<div id="main-container">
   <router-outlet></router-outlet>
-</main>
+</div>
