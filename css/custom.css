@@ -1,0 +1,469 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    background: #f5f5f5;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.clear{
+    clear: both;
+}
+
+.pull-right{
+    float: right;
+}
+
+.pull-left{
+    float: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.container{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.button{
+    border: 1px solid #555555;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #555;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+.row .block{
+    width: 49%;
+    float: left;
+    padding: 10px;
+}
+
+.row{
+    margin: 20px 0;
+}
+
+.row .block:nth-child(2){
+    margin-left: 2%;
+}
+
+.row .block h2{
+    font-family: 'Dosis', sans-serif;
+    color: #d09683;
+    padding: 5px 0 10px 0;
+    border-bottom: 1px dashed #d09683;
+    margin: 0 0 10px 0;
+}
+
+nav {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 1);
+    left: 0;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    top: 5px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li a{
+    font-family: 'Dosis', sans-serif;
+    color: #555555;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+#main-container{
+    margin-top: 110px;
+}
+
+#cart-container{
+    background: url("../images/cart-icon.png") no-repeat 13px center #73605b;
+    float: right;
+    padding: 10px 25px 10px 45px;
+    border-radius: 20px;
+    color: #FFF;
+}
+
+#cart-container a{
+    color: #fff;
+}
+
+#banner-container{
+    width: 100%;
+    background: url("http://placehold.it/1500x450") no-repeat center;
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    font-size: 2.5em;
+    color: #FFF;
+    position: relative;
+}
+
+.shadow-container{
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(153,153,153,1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(153,153,153,1);
+    box-shadow: 0px 2px 2px 0px rgba(153,153,153,1);
+    padding: 5px 15px;
+    background: #FFF;
+}
+
+.bordered-block{
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+}
+
+#search-container{
+    position: absolute;
+    bottom: -24px;
+    width: 85%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+#search-container .search-input{
+    width: 70%;
+    outline:none;
+    padding: 10px 0;
+    border: none;
+    font-size: 15px;
+    position: relative;
+    float: left;
+    bottom:-1px;
+}
+
+.search-input:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+#search-container input[type='submit'], #search-container button {
+    float:right;
+    background:none;
+    border: 1px solid #555555;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.products-container{
+    margin-top:45px;
+}
+
+.products-container .product{
+    background: #fff;
+    display: inline-block;
+    width: 31%;
+    margin-right: 3.1%;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 2px 1px 3px 0px rgba(184,184,184,1);
+    -moz-box-shadow: 2px 1px 3px 0px rgba(184,184,184,1);
+    box-shadow: 2px 1px 3px 0px rgba(184,184,184,1);
+    padding: 20px;
+    position: relative;
+}
+
+.products-container .product:nth-child(3n+3){
+    margin-right: 0;
+}
+
+.products-container .product h3{
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    color: #d09683;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+}
+
+.products-container .product .image-container img{
+    width: 100%;
+}
+
+.products-container .product .star-container{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.products-container .product .star-container .star {
+    width: 15px;
+    height: 15px;
+    background: url("../images/star-full.png")  no-repeat  center center;
+    background-size: cover;
+    display: inline-block;
+
+}
+
+.products-container .product .text-container{
+    text-align: center;
+}
+
+
+.products-container .product .price{
+    font-weight: bold;
+    color: #73605B;
+    font-size: 25px;
+    float: left;
+    position: relative;
+    bottom: -5px;
+    padding-left: 10px;
+}
+
+.products-container .product .add-to-cart-button{
+    display: block;
+    width: 150px;
+    background: #73605b;
+    padding: 10px;
+    color: #fff;
+    border-radius: 20px;
+    float: right;
+}
+
+.products-container .product .description-container{
+    position: absolute;
+    top:0;
+    height: 85%;
+    left:0;
+    width: 100%;
+    display: none;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    text-align: justify;
+}
+
+.products-container .product .description-container h4{
+    color: #d09683;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.products-container .product .description-container span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.products-container .product:hover .description-container{
+    display: table;
+}
+
+.products-container .product:hover .blur{
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    display: block;
+}
+
+#stepper-container{
+    margin-top: 35px;
+}
+
+#stepper-container ul{
+    margin: 0;
+    padding: 0;
+    background: #363237;
+    border-radius: 5px;
+}
+
+#stepper-container ul li{
+    list-style: none;
+    display: inline-block;
+    width: 25%;
+    margin-left: -4px;
+
+}
+
+#stepper-container ul li.active{
+    background: rgba(0, 0, 0, 0) url("../images/stepper-silver.png") no-repeat scroll right center;
+    padding-right: 25px;
+}
+
+
+#stepper-container ul li a{
+    display: block;
+    padding: 19px;
+    color: #fff;
+}
+
+#stepper-container ul li a:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+
+#stepper-container ul li.active a{
+    background: #73605b;
+}
+
+table#cart-items{
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 7px;
+}
+
+table#cart-items thead th{
+    background: #555555;
+    padding: 10px 5px;
+    color: #fff;
+}
+
+table#cart-items thead th:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+table#cart-items thead th:last-child{
+    border-radius: 0 5px 5px 0;
+}
+
+table#cart-items td{
+    padding: 5px 10px;
+}
+
+#payment-delivery-container{
+}
+
+#payment-delivery-container .block{
+    float: left;
+    width: 49%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#payment-delivery-container .block:nth-child(2){
+    margin-left: 2%;
+}
+
+#payment-delivery-container .block ul {
+    margin: 0;
+    padding: 0;
+}
+
+#payment-delivery-container .block ul li{
+    list-style:none;
+    padding: 5px 0;
+}
+
+#payment-delivery-container .block ul li .price{
+    color: #d09683;
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+#price-summary-container{
+    margin: 35px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#price-summary-container table{
+    float: right;
+}
+
+#price-summary-container .free-delivery-info{
+    float: left;
+    padding-top: 43px;
+}
+
+#price-summary-container table tr td{
+    padding: 2px 0;
+}
+
+#price-summary-container table tr.total-price td{
+    font-weight: bold;
+    color: #d09683;
+    font-size: 18px;
+    border-top: 1px solid #cacaca;
+}
+
+#cart-buttons-container{
+    margin-bottom: 35px;
+}
+
+#cart-buttons-container .button-cart-continue{
+    padding: 10px 50px;
+    background: #73605b;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+#cart-contact-container .block label{
+    display: block;
+    padding: 5px 3px;
+    color: #555555;
+    font-weight: bold;
+}
+
+
+#cart-contact-container input[type='text']{
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #cacaca;
+}
+
+#cart-contact-container input[type='text'].warning{
+    border: 1px solid #ca2718;
+}
+
+
+#billing-type-container{
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px dashed #d09683;
+    padding: 10px 0;
+}
+
+#billing-type-container input{
+    margin-left: 10px;
+}
+
+#delivery-switch-container{
+    font-size: 16px;
+    font-weight: bold;
+}
