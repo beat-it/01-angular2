@@ -5,6 +5,7 @@ import { ProductComponent } from './product-list/product.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
+import { RepeatDirective } from './product-list/repeat.directive';
 
 export { SearchComponent } from './search.component';
 export * from './search.service';
@@ -14,7 +15,7 @@ export * from './search.service';
     CommonModule
   ],
   declarations: [ProductListComponent, SearchBarComponent, SearchComponent,
-    ProductComponent],
+    ProductComponent, RepeatDirective],
   providers: [SearchService],
 })
 export class SearchModule { }
