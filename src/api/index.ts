@@ -76,7 +76,7 @@ export interface ReadCartResponse extends Response {
   data: CartItem[];
 }
 
-export type CheckoutOption {
+export interface CheckoutOption {
   id: string;
   price: number;
 }

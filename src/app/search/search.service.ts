@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { ProductResponse } from '../../api';
 
 export type SearchQuery = string;
+export { ProductResponse } from '../../api';
 
 export class SearchService {
 

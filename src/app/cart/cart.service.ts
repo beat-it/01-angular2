@@ -25,7 +25,7 @@ export class CartService {
   }
 
   checkoutOptions():Promise<CheckoutOptionsResponse> {
-    return delay({delivery_opts:[], payment_opts: []});
+    return delay({status: "OK", "data":{delivery_opts:[], payment_opts: []}});
   }
 
 }
