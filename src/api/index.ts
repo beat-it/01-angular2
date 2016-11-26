@@ -1,6 +1,7 @@
 export type ResponseStatus = "OK" | "ERROR";
 
 export interface Product {
+    id: string,
     name: string;
     price: number;
     currency: string;
@@ -9,7 +10,7 @@ export interface Product {
     image?: {
       url: string;
       thumbnail_url: string;
-      catalog_url: string;
+      catalog_url?: string;
     };
 }
 
