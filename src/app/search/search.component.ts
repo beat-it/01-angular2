@@ -9,7 +9,7 @@ import { SearchService, ProductResponse } from './search.service';
 @Injectable()
 export class SearchComponent implements OnInit {
   loading: boolean = false;
-  results: ProductResponse;
+  results: ProductResponse | undefined;
 
   constructor(private searchService: SearchService) { }
 
@@ -17,18 +17,27 @@ export class SearchComponent implements OnInit {
   }
 
   searchDone(results: ProductResponse) {
-    console.log("Got results", results);
     this.results = results;
+    console.log("Got results", this.hasResults());
     this.loading = false;
+  }
+
+  hasResults() {
+    return this.results && this.results.data.length > 0;
   }
 
   search(query:string) {
     console.log("SearchComponent: search ",query);
     this.loading = true;
+    this.results = undefined;
     this.searchService.search(query).then(
       (r) => this.searchDone(r),
       (e) => console.error("Cannot load results",e)
     );
+  }
+
+  order(product_id:string) {
+    console.log("order",product_id);
   }
 
 }

@@ -8,5 +8,7 @@
         <search-bar (search)="search($event)"></search-bar>
     </div>
 </div>
-<product-list>
-</product-list>
+<div [ngSwitch]="hasResults()">
+  <div *ngSwitchCase="true"><product-list [products]="results.data" (order)="order($event)"></product-list></div>
+  <div *ngSwitchDefault class="container"><p>Zatiaľ žiadne výsledky.</div>
+</div>
