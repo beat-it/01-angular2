@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchModule, SearchComponent } from './search/search.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CartModule } from './cart/cart.module';
 import { CartService } from './cart/cart.service';
 
 const routes:Routes = [
@@ -25,7 +26,8 @@ const routes:Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    SearchModule
+    SearchModule,
+    CartModule
   ],
   providers: [
     CartService

@@ -1,3 +1,6 @@
-<p>
-  cart works!
-</p>
+<div id="cart-container">
+   <a routerLink="/cart">
+      {{(info | async).item_count}} ks za
+      {{(info | async).total_price}}€
+  </a>
+</div>
