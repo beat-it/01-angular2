@@ -1,0 +1,41 @@
+<table id="cart-items" cellpadding="0" cellspacing="0">
+    <thead>
+        <tr>
+            <!-- http://stackoverflow.com/questions/35615751/why-is-colspan-not-a-known-native-attribute-in-angular-2 -->
+            <th [colSpan]="2 + actions.length" class="text-left">
+                Produkt
+            </th>
+            <th class="text-center">
+                Cena za ks
+            </th>
+            <th class="text-center">
+                Počet kusov
+            </th>
+            <th class="text-center">
+                Celkom
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>
+                <img [src]="item.image.thumbnail_url" alt="Produkt"/>
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+            <td *ngFor="let action of actions">
+                <button class="button" (click)="emitAction(action, item)">{{action}}</button>
+            </td>
+            <td class="text-center">
+                {{item.price}}€ / ks
+            </td>
+            <td class="text-center">
+                {{item.quantity}}ks
+            </td>
+            <td class="item-total-price text-center">
+                {{item.total_price}}€
+            </td>
+        </tr>
+    </tbody>
+</table>

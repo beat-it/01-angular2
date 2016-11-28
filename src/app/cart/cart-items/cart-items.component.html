@@ -1,3 +1,4 @@
-<p>
-  cart-items works!
-</p>
+<div id="cart-items-container" class="row">
+    <cart-item-list [items]="items | async" [actions]="actions" (action)="doAction($event)">
+    </cart-item-list>
+</div>

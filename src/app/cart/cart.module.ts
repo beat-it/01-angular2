@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './cart.component';
 import { CartWidgetComponent } from './cart-widget/cart-widget.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
+import { CartItemListComponent } from './cart-item-list/cart-item-list.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
     exports: [CartWidgetComponent],
     declarations: [CartComponent,
         CartWidgetComponent,
-        CartItemsComponent],
+        CartItemsComponent,
+        CartItemListComponent],
 })
 export class CartModule { }
