@@ -1,1 +1,33 @@
+<div class="container">
+    <h1>
+        Košík
+    </h1>
 
+    <div id="stepper-container">
+        <ul>
+            <!-- direktíva routerLinkActive nastaví triedu elementu, ak
+                 je niektorá cesta z vnorených routerLink direktív aktívna -->
+            <li routerLinkActive="active">
+                <a routerLink="items">
+                    1. Objednané produkty
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="contact">
+                    2. Kontaktné údaje
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="summary">
+                    3. Sumarizácia objednávky
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    4. Dokončenie objednávky
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<router-outlet></router-outlet>
