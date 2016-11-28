@@ -29,11 +29,12 @@ export interface AddToCartRequest {
     product_id: string;
 }
 
+export interface CartInfo {
+  item_count: number;
+  total_price: number;
+}
 export interface AddToCartResponse extends Response {
-  data: {
-    item_count: number,
-    total_price: number
-  }
+  data: CartInfo;
 }
 
 export type CartInfoResponse = AddToCartResponse
