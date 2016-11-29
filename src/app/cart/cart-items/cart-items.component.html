@@ -1,4 +1,71 @@
 <div id="cart-items-container" class="row">
     <cart-item-list [items]="items | async" [actions]="actions" (action)="doAction($event)">
     </cart-item-list>
+    <div id="payment-delivery-container" class="row">
+      <div class="block bordered-block">
+          <h2>
+              Spôsob platby
+          </h2>
+          <ul>
+              <li *ngFor="let opt of payment_opts | async">
+                  <input name="payment" type="radio" [id]="opt.id" (change)="payment_opt = $event.value">
+                  <label [htmlFor]="opt.id">{{opt.id}}</label>
+                  <span class="price">
+                      {{opt.price}}€
+                  </span>
+              </li>
+          </ul>
+      </div>
+      <div class="block bordered-block">
+          <h2>
+              Spôsob dopravy
+          </h2>
+          <ul>
+            <li *ngFor="let opt of delivery_opts | async">
+                <input name="delivery" type="radio" [id]="opt.id" (change)="delivery_opt = $event.value">
+                <label [htmlFor]="opt.id">{{opt.id}}</label>
+                <span class="price">
+                    {{opt.price}}€
+                </span>
+            </li>
+          </ul>
+      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div id="price-summary-container" class="row bordered-block">
+      <div class="free-delivery-info">
+          Pri nákupe tovaru za ďalších 53,52€ získate dopravu zadarmo
+      </div>
+      <table cellpadding="0" cellspacing="0">
+          <tr>
+              <td>Produkty:</td>
+              <td>1500€</td>
+          </tr>
+          <tr>
+              <td>Doprava:</td>
+              <td>1500€</td>
+          </tr>
+          <tr>
+              <td>Dobierka:</td>
+              <td>1500€</td>
+          </tr>
+          <tr class="total-price">
+              <td>Celkom k úhrade:</td>
+              <td>1500€</td>
+          </tr>
+      </table>
+      <div class="clear"></div>
+  </div>
+
+  <div id="cart-buttons-container" class="row">
+      <a class="button pull-left" routerLink="/">
+          Späť do obchodu
+      </a>
+
+      <a routerLink="../contact" class="button button-cart-continue pull-right">
+          Pokračovať
+      </a>
+      <div class="clear"></div>
+  </div>
 </div>

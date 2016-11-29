@@ -42,6 +42,20 @@ const sampleData:CartItem[] = [
   },
 ];
 
+const sample_options = {
+  delivery_opts:[
+    {id: "KURIER", price: 4},
+    {id: "BALIK_NA_ADRESU", price: 3},
+    {id: "BALIK_NA_POSTU", price: 2}    
+
+  ],
+  payment_opts: [
+    {id: "KARTA", price: 2},
+    {id: "PREVODOM", price: 0},
+    {id: "DOBIERKA", price: 2.5}
+  ]
+};
+
 @Injectable()
 export class CartService {
 
@@ -68,7 +82,7 @@ export class CartService {
   }
 
   checkoutOptions():Promise<CheckoutOptionsResponse> {
-    return delay({status: "OK", "data":{delivery_opts:[], payment_opts: []}});
+    return delay({status: "OK", "data":sample_options});
   }
 
 }
