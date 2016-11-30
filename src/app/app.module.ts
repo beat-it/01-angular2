@@ -9,12 +9,17 @@ import { SearchModule, SearchComponent } from './search/search.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CartModule } from './cart/cart.module';
 import { CartService } from './cart/cart.service';
+import { BACKEND_CONFIG, BackendConfig} from './backend';
 
 const routes:Routes = [
   { path: "search", component: SearchComponent },
   { path: "", redirectTo: "search", pathMatch: 'full' },
   { path: "**", component: NotFoundComponent }
 ];
+
+const backendConfig : BackendConfig = {
+  baseUrl: "http://localhost:8080/service"
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ const routes:Routes = [
     CartModule
   ],
   providers: [
-    CartService
+    CartService,
+    {provide: BACKEND_CONFIG, useValue: backendConfig}
   ],
   bootstrap: [AppComponent]
 })

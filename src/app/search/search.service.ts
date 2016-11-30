@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { Observable, Subject } from 'rxjs';
 import { ProductResponse, Product } from '../../api';
+import * as be from '../backend';
 
 export type SearchQuery = string;
 export { ProductResponse } from '../../api';
@@ -24,7 +26,7 @@ const placeholder_image = {
 
 const sampleData:Product[] = [
   {
-    id: "01",
+    productId: "01",
     name: "ZiZi",
     price: 150,
     currency: "EUR",
@@ -33,7 +35,7 @@ const sampleData:Product[] = [
     image: placeholder_image
   },
   {
-    id: "02",
+    productId: "02",
     name: "Kiwi J",
     price: 250,
     currency: "EUR",
@@ -42,7 +44,7 @@ const sampleData:Product[] = [
     image: placeholder_image
   },
   {
-    id: "03",
+    productId: "03",
     name: "Angular 2",
     price: 50,
     currency: "EUR",
@@ -52,16 +54,18 @@ const sampleData:Product[] = [
   },
 ];
 
+@Injectable()
 export class SearchService {
+  private baseUrl:string;
 
-  constructor() { }
+  constructor(private http:Http, @Inject(be.BACKEND_CONFIG) private backendConfig:be.BackendConfig) {
+    this.baseUrl = backendConfig.baseUrl;
+   }
 
   search(query:SearchQuery) : Promise<ProductResponse> {
     console.log("SearchService: search",query);
-    // vraciame asynchronny objekt - prislub ukoncenia vyhladavania.
-    return new Promise<ProductResponse>(
-      resolve =>
-        // posli vysledok o pol sekundy
-        window.setTimeout(() => resolve({status:"OK", data:sampleData}), 500));
+    return this.http.get(`${this.backendConfig.baseUrl}/catalog/search/${query}`)
+      .do((r) => console.log('search response', r))
+      .map((r) => r.json()).toPromise();
   }
 }

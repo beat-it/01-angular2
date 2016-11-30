@@ -9,6 +9,6 @@
     </div>
 </div>
 <div [ngSwitch]="hasResults()">
-  <div *ngSwitchCase="true"><product-list [products]="results.data" (order)="order($event)"></product-list></div>
+  <div *ngSwitchCase="true"><product-list [products]="results.products" (order)="order($event)"></product-list></div>
   <div *ngSwitchDefault class="container"><p>Zatiaľ žiadne výsledky.</div>
 </div>

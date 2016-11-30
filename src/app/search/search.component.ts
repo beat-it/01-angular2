@@ -18,12 +18,12 @@ export class SearchComponent implements OnInit {
 
   searchDone(results: ProductResponse) {
     this.results = results;
-    console.log("Got results", this.hasResults());
+    console.log("Got results", results);
     this.loading = false;
   }
 
   hasResults() {
-    return this.results && this.results.data.length > 0;
+    return this.results && this.results.products.length > 0;
   }
 
   search(query:string) {

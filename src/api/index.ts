@@ -1,7 +1,7 @@
 export type ResponseStatus = "OK" | "ERROR";
 
 export interface Product {
-    id: string,
+    productId: string,
     name: string;
     price: number;
     currency: string;
@@ -15,11 +15,10 @@ export interface Product {
 }
 
 export interface Response {
-  status: ResponseStatus;
 }
 
 export interface ProductResponse extends Response {
-  data: Product[];
+  products: Product[];
 }
 
 export interface DeleteFromCartResponse extends Response { }
