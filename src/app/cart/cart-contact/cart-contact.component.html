@@ -1,3 +1,124 @@
-<p>
-  cart-contact works!
-</p>
+<div id="cart-contact-container">
+
+    <div class="row">
+        <h2>
+            Osobné údaje
+        </h2>
+    </div>
+    <!-- Pri formulároch sa deje veľa mágie šablónovacieho jazyka Ng2:
+         Každý <form> je spracovaný direktívou ngForm. Jej hodnotu
+         (inštanciu triedy NgForm) spravíme prístupnú v šablóne ako "f".-->
+    <form (ngSubmit)="submit(f)" #f="ngForm">
+    <div id="person-container" class="row" ngModelGroup="person">
+        <div class="block">
+            <label for="first-name">Meno</label>
+            <!-- A teraz najkontraverznejší zápis - obojstranná väzba,
+            "Banana in the box [(ngModel)]". Zmena na formulári sa prejaví
+            v dátach, zmena v dátach späť na formulári.
+            Okrem toho definujeme meno, ktoré sa stane menom ovládacieho
+            prvku, cez ktorý vieme skontrolovať validácie. -->
+            <input required type="text" name="first_name" ngModel/>
+
+            <label for="phone">Telefónne číslo</label>
+            <input type="text" name="phone" ngModel/>
+        </div>
+        <div class="block">
+            <label for="surname">Priezvisko</label>
+            <input required type="text" name="surname" ngModel/>
+            <label for="email">Email</label>
+            <input required type="text" name="email" ngModel/>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="billing-type-container" class="row">
+        <span>
+            Fakturačná adresa:
+        </span>
+        <input type="radio" value="false" ngModel name="company"/>
+        <label for="billing-personal"> Nakupujem súkromne </label>
+        <input type="radio" value="true" ngModel name="company"/>
+        <label for="billing-company"> Nakupujem na firmu </label>
+    </div>
+
+    <div id="billing-company-container"class="row" ngModelGroup="company_data">
+        <div class="block">
+            <label for="company-name">Názov firmy</label>
+            <input id="company-name" name="company-name" type="text" ngModel />
+
+            <label for="ico">IČO</label>
+            <input id="ico" name="ico" type="text" ngModel/>
+        </div>
+        <div class="block">
+            <label for="dic">DIČ</label>
+            <input id="dic" name="dic" type="text" ngModel/>
+
+            <label for="ic-dph">IČ DPH</label>
+            <input id="ic-dph" name="ic-dph" type="text" ngModel/>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="billing-container" class="row" ngModelGroup="billing_address">
+        <div class="block">
+            <label for="billing-address">Ulica a číslo</label>
+            <input id="billing-address" name="address" type="text" ngModel/>
+
+            <label for="billing-city">Mesto</label>
+            <input id="billing-city" name="city" type="text" ngModel/>
+        </div>
+        <div class="block">
+
+            <label for="billing-zip">PSČ</label>
+            <input id="billing-zip" name="zip" type="text" ngModel/>
+
+
+            <label for="billing-country">Štát</label>
+            <input id="billing-country" name="country" type="text" ngModel/>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="delivery-switch-container" class="row">
+        <input type="checkbox" name="different_delivery_address" id="delivery-switch" ngModel>
+        <label for="delivery-switch">Dodacia adresa je iná ako fakturačná</label>
+    </div>
+
+    <div class="row">
+        <h2>
+            Dodacia adresa
+        </h2>
+    </div>
+
+    <div id="delivery-container" class="row" ngModelGroup="delivery_address">
+        <div class="block">
+            <label for="delivery-address">Ulica a číslo</label>
+            <input id="delivery-address" name="billing-address" type="text" ngModel/>
+
+            <label for="delivery-city">Mesto</label>
+            <input id="delivery-city" name="billing-city" type="text" ngModel/>
+        </div>
+        <div class="block">
+
+            <label for="delivery-zip">PSČ</label>
+            <input id="delivery-zip" name="billing-zip" type="text" ngModel/>
+
+
+            <label for="delivery-country">Štát</label>
+            <input id="delivery-country" name="billing-country" type="text" ngModel/>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="cart-buttons-container" class="row">
+        <a class="button pull-left" href="cart.html">
+            Späť do košíka
+        </a>
+
+        <button type="submit" class="button button-cart-continue pull-right">
+            Pokračovať
+        </button>
+        <div class="clear"></div>
+    </div>
+    </form>
+</div>

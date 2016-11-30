@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart.component';
 import { CartWidgetComponent } from './cart-widget/cart-widget.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        FormsModule,
     ],
     exports: [CartWidgetComponent],
     declarations: [CartComponent,
