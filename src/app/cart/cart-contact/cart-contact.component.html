@@ -35,13 +35,16 @@
         <span>
             Fakturačná adresa:
         </span>
-        <input type="radio" value="false" ngModel name="company"/>
+        <!-- value="false" binds a string. to bind a boolean or number we must use [value]="false" -->
+        <input id="billing-personal" type="radio" [value]="false" [(ngModel)]="company_order"
+               name="company" [checked]="!company_order"/>
         <label for="billing-personal"> Nakupujem súkromne </label>
-        <input type="radio" value="true" ngModel name="company"/>
+        <input id="billing-company" type="radio" [value]="true" [(ngModel)]="company_order"
+               name="company" [checked]="company_order"/>
         <label for="billing-company"> Nakupujem na firmu </label>
     </div>
 
-    <div id="billing-company-container"class="row" ngModelGroup="company_data">
+    <div id="billing-company-container"class="row" ngModelGroup="company_data" [biDisableGroup]="!company_order">
         <div class="block">
             <label for="company-name">Názov firmy</label>
             <input id="company-name" name="company-name" type="text" ngModel />
@@ -80,7 +83,7 @@
     </div>
 
     <div id="delivery-switch-container" class="row">
-        <input type="checkbox" name="different_delivery_address" id="delivery-switch" ngModel>
+        <input type="checkbox" name="different_delivery_address" id="delivery-switch" [(ngModel)]="different_delivery_address">
         <label for="delivery-switch">Dodacia adresa je iná ako fakturačná</label>
     </div>
 
@@ -90,7 +93,7 @@
         </h2>
     </div>
 
-    <div id="delivery-container" class="row" ngModelGroup="delivery_address">
+    <div id="delivery-container" class="row" ngModelGroup="delivery_address" [biDisableGroup]="!different_delivery_address">
         <div class="block">
             <label for="delivery-address">Ulica a číslo</label>
             <input id="delivery-address" name="billing-address" type="text" ngModel/>

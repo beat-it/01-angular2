@@ -7,6 +7,7 @@ import { CartWidgetComponent } from './cart-widget/cart-widget.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CartItemListComponent } from './cart-item-list/cart-item-list.component';
 import { CartContactComponent } from './cart-contact/cart-contact.component';
+import { DisableGroupDirective } from './cart-contact/disable-group.directive';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
         CartWidgetComponent,
         CartItemsComponent,
         CartItemListComponent,
-        CartContactComponent],
+        CartContactComponent,
+        DisableGroupDirective],
 })
 export class CartModule { }

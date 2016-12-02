@@ -7,22 +7,7 @@ import { BillingData } from '../../../api';
   styleUrls: ['./cart-contact.component.css']
 })
 export class CartContactComponent implements OnInit {
-  contact: BillingData = {
-    delivery: '',
-    payment: '',
-    person: {
-      first_name: '',
-      surname: '',
-      email:'',
-    },
-    billing_address: {
-      address:'',
-      city:'',
-      zip:'',
-      country:''
-    }
-  };
-
+  company_order: boolean = false;
   constructor() { }
 
   ngOnInit() {
