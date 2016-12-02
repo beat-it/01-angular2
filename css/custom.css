@@ -126,8 +126,8 @@ nav ul li a{
 #banner-container{
     width: 100%;
     background: url("http://placehold.it/1500x450") no-repeat center;
-    height: 400px;
-    line-height: 400px;
+    height: 200px;
+    line-height: 200px;
     text-align: center;
     font-size: 2.5em;
     color: #FFF;
@@ -193,7 +193,7 @@ nav ul li a{
     background: #fff;
     display: inline-block;
     width: 31%;
-    margin-right: 3.1%;
+    margin-right: 2.1%;
     margin-bottom: 20px;
     -webkit-box-shadow: 2px 1px 3px 0px rgba(184,184,184,1);
     -moz-box-shadow: 2px 1px 3px 0px rgba(184,184,184,1);

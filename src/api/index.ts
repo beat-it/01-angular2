@@ -9,8 +9,8 @@ export interface Product {
     rating?: number;
     image?: {
       url: string;
-      thumbnail_url: string;
-      catalog_url?: string;
+      thumbnailUrl: string;
+      catalogUrl?: string;
     };
 }
 
