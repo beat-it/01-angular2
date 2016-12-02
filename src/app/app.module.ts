@@ -9,7 +9,7 @@ import { SearchModule, SearchComponent } from './search/search.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CartModule } from './cart/cart.module';
 import { CartService } from './cart/cart.service';
-import { BACKEND_CONFIG, BackendConfig} from './backend';
+import { BACKEND_CONFIG, BackendConfig, BackendService} from './backend';
 
 const routes:Routes = [
   { path: "search", component: SearchComponent },
@@ -36,7 +36,8 @@ const backendConfig : BackendConfig = {
   ],
   providers: [
     CartService,
-    {provide: BACKEND_CONFIG, useValue: backendConfig}
+    {provide: BACKEND_CONFIG, useValue: backendConfig},
+    BackendService,
   ],
   bootstrap: [AppComponent]
 })

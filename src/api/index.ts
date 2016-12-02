@@ -25,16 +25,14 @@ export interface DeleteFromCartResponse extends Response { }
 
 export interface AddToCartRequest {
     quantity: number;
-    product_id: string;
+    productId: string;
 }
 
 export interface CartInfo {
-  item_count: number;
-  total_price: number;
+  count: number;
+  totalPrice: number;
 }
-export interface AddToCartResponse extends Response {
-  data: CartInfo;
-}
+export type AddToCartResponse = CartInfo;
 
 export type CartInfoResponse = AddToCartResponse
 

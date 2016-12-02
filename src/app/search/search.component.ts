@@ -38,8 +38,8 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  order(product_id:string) {
-    console.log("order",product_id);
+  order(productId:string) {
+    this.cart.addToCart({productId, quantity: 1});
   }
 
 }
