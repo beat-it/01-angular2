@@ -19,7 +19,7 @@ export class CartItemsComponent implements OnInit {
   readonly actions=['Vymazať'];
 
   constructor(private service:CartService) {
-    this.items = service.readCart().then((r) => r.data);
+    this.items = service.readCart().then((r) => r.cartItems);
     var co_opts = service.checkoutOptions();
     this.delivery_opts = co_opts.then((r) => r.data.delivery_opts);
     this.payment_opts = co_opts.then((r) => r.data.payment_opts);

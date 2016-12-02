@@ -68,11 +68,10 @@ export interface BillingData {
 export interface CartItem extends Product {
   quantity: number;
   // item price vs price
-  total_price: number;
+  totalPrice: number;
 }
-
 export interface ReadCartResponse extends Response {
-  data: CartItem[];
+  cartItems: CartItem[];
 }
 
 export interface CheckoutOption {

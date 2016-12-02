@@ -19,7 +19,7 @@
     <tbody>
         <tr *ngFor="let item of items">
             <td>
-                <img [src]="item.image.thumbnail_url" alt="Produkt"/>
+                <img [src]="'//localhost:8080/'+item.image.thumbnailUrl" alt="Produkt"/>
             </td>
             <td>
                 {{item.name}}
