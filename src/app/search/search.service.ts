@@ -68,4 +68,9 @@ export class SearchService {
       .do((r) => console.log('search response', r))
       .map((r) => r.json()).toPromise();
   }
+
+  homepage() : Promise<ProductResponse> {
+    return this.http.get(`${this.backendConfig.baseUrl}/catalog/homepage`)
+      .map((r) => r.json()).toPromise();
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { SearchService, ProductResponse } from './search.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-search',
@@ -11,9 +12,10 @@ export class SearchComponent implements OnInit {
   loading: boolean = false;
   results: ProductResponse | undefined;
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private cart:CartService) { }
 
   ngOnInit() {
+    this.searchService.homepage().then((r) => this.searchDone(r));
   }
 
   searchDone(results: ProductResponse) {
