@@ -2,7 +2,7 @@ import { Injectable, Inject, OnInit } from '@angular/core';
 import { Http } from '@angular/http'
 import * as be from '../backend';
 import { ReadCartResponse, AddToCartRequest, AddToCartResponse,
-  CartInfoResponse, Response, CheckoutOptionsResponse , CartItem, CartInfo} from '../../api';
+  CartInfoResponse, Response, CheckoutOptionsResponse , CartItem, CartInfo, CheckoutOption} from '../../api';
 import { delay } from '../util';
 import { Observable, BehaviorSubject } from 'rxjs/Rx';
 
@@ -58,7 +58,15 @@ export class CartService implements OnInit {
   }
 
   checkoutOptions():Promise<CheckoutOptionsResponse> {
-    return delay({status: "OK", "data":sample_options});
+
+    // joining two backend calls
+    return this.backend.get(`/cart/payment`)
+        .zip(this.backend.get(`/cart/delivery`))
+        .map( ([payment, delivery]) => {
+          return {
+            payment_opts: payment,
+            delivery_opts: delivery,
+        }}).do((r) => console.log("Delivery options",r)).toPromise();
   }
 
 }

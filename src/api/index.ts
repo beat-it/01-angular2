@@ -70,8 +70,19 @@ export interface CartItem extends Product {
   // item price vs price
   totalPrice: number;
 }
+
+export interface PaymentInfo {
+    totalPrice:number,
+    itemsPrice: number,
+    deliveryPrice: number,
+    deliveryType: string,
+    paymentMethod: string
+}
+
 export interface ReadCartResponse extends Response {
   cartItems: CartItem[];
+  payment: PaymentInfo;
+
 }
 
 export interface CheckoutOption {
@@ -80,8 +91,6 @@ export interface CheckoutOption {
 }
 
 export interface CheckoutOptionsResponse extends Response {
-  data: {
     delivery_opts: CheckoutOption[];
     payment_opts: CheckoutOption[];
-  }
 }

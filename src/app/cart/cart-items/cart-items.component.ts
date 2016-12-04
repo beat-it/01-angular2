@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { CartItem, CheckoutOption } from '../../../api/';
+import { CartItem, CheckoutOption, ReadCartResponse, PaymentInfo } from '../../../api/';
 import { Action } from '../cart-item-list/cart-item-list.component';
 
 @Component({
@@ -9,7 +9,10 @@ import { Action } from '../cart-item-list/cart-item-list.component';
   styleUrls: ['./cart-items.component.css']
 })
 export class CartItemsComponent implements OnInit {
+  cart:Promise<ReadCartResponse>
   items:Promise<CartItem[]>;
+  payment:Promise<PaymentInfo>;
+
   delivery_opts: Promise<CheckoutOption[]>;
   payment_opts: Promise<CheckoutOption[]>;
 
@@ -19,10 +22,16 @@ export class CartItemsComponent implements OnInit {
   readonly actions=['Vymazať'];
 
   constructor(private service:CartService) {
-    this.items = service.readCart().then((r) => r.cartItems);
     var co_opts = service.checkoutOptions();
-    this.delivery_opts = co_opts.then((r) => r.data.delivery_opts);
-    this.payment_opts = co_opts.then((r) => r.data.payment_opts);
+    this.delivery_opts = co_opts.then((r) => r.delivery_opts);
+    this.payment_opts = co_opts.then((r) => r.payment_opts);
+    this.loadCart();
+  }
+
+  loadCart() {
+    this.cart = this.service.readCart()
+    this.items = this.cart.then((r) => r.cartItems);
+    this.payment = this.cart.then((r) => r.payment);
   }
 
   doAction(a:Action) {
