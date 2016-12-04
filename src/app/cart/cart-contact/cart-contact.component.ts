@@ -14,7 +14,7 @@ export class CartContactComponent implements OnInit {
   }
 
   submit(form) {
-    console.log(form);
+    console.log(form.value);
   }
 
 }

@@ -35,7 +35,14 @@ export class CartItemsComponent implements OnInit {
   }
 
   doAction(a:Action) {
-    console.log(a.action, a.item);
+    switch (a.action) {
+      case this.actions[0]:
+        this.service.removeFromCart(a.item.productId)
+        .then((r) => this.loadCart());
+        break;
+      default:
+        console.log(a.action, a.item);
+    }
   }
 
   ngOnInit() {

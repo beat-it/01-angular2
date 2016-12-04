@@ -54,7 +54,7 @@ export class CartService implements OnInit {
   }
 
   removeFromCart(product_id:string):Promise<Response> {
-    return delay({status:"OK"});
+    return this.backend.delete(`/cart/items/${product_id}`).toPromise();
   }
 
   checkoutOptions():Promise<CheckoutOptionsResponse> {
