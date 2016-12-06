@@ -76,6 +76,7 @@ export interface PaymentInfo {
     itemsPrice: number,
     deliveryPrice: number,
     deliveryType: string,
+    transactionPrice: number,
     paymentMethod: string
 }
 

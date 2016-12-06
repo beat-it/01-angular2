@@ -29,6 +29,10 @@ export class BackendService {
         return this.intercept(this.http.delete(`${this.baseUrl}${path}`, this.options()));
     }
 
+    put(path:string, body: any):Observable<Response> {
+        return this.intercept(this.http.put(`${this.baseUrl}${path}`, body, this.options()));
+    }
+
     private options():RequestOptionsArgs {
         let h = new Headers();
         if (this.token) {

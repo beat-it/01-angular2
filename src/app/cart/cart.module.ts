@@ -8,6 +8,7 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CartItemListComponent } from './cart-item-list/cart-item-list.component';
 import { CartContactComponent } from './cart-contact/cart-contact.component';
 import { DisableGroupDirective } from './cart-contact/disable-group.directive';
+import { CartContactGuard } from './cart-contact/cart-contact.guard';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
         // riadený URL za cart/ nasledovne:
         children: [
             { path: '', pathMatch: 'full', redirectTo: 'items' },
-            { path: 'items', component: CartItemsComponent },
-            { path: 'contact', component: CartContactComponent},
+            { path: 'items', component: CartItemsComponent, },
+            { path: 'contact', component: CartContactComponent, canActivate: [CartContactGuard]},
         ],
     }
 ];
@@ -38,5 +39,6 @@ const routes: Routes = [
         CartItemListComponent,
         CartContactComponent,
         DisableGroupDirective],
+    providers: [CartContactGuard]
 })
 export class CartModule { }

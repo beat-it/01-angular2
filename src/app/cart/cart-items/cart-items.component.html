@@ -8,7 +8,8 @@
           </h2>
           <ul>
               <li *ngFor="let opt of payment_opts | async">
-                  <input name="payment" type="radio" [id]="opt.id" (change)="payment_opt = $event.value">
+                  <input name="payment" type="radio" [id]="opt.id" (change)="setPaymentOpt(opt.id)"
+                        [checked]="opt.id === (payment|async).paymentMethod">
                   <label [htmlFor]="opt.id">{{opt.id}}</label>
                   <span class="price">
                       {{opt.price}}€
@@ -22,7 +23,8 @@
           </h2>
           <ul>
             <li *ngFor="let opt of delivery_opts | async">
-                <input name="delivery" type="radio" [id]="opt.id" (change)="delivery_opt = $event.value">
+                <input name="delivery" type="radio" [id]="opt.id" (change)="setDeliveryOpt(opt.id)"
+                    [checked]="opt.id == (payment|async).deliveryType">
                 <label [htmlFor]="opt.id">{{opt.id}}</label>
                 <span class="price">
                     {{opt.price}}€
@@ -46,6 +48,10 @@
               <td>Doprava:</td>
               <td>{{(payment|async)?.deliveryPrice}}€</td>
           </tr>
+          <tr class="total-price">
+              <td>Transakcia:</td>
+              <td>{{(payment|async)?.transactionPrice}}€</td>
+          </tr>          
           <tr class="total-price">
               <td>Celkom k úhrade:</td>
               <td>{{(payment|async)?.totalPrice}}€</td>

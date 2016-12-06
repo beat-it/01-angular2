@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CartItem, CheckoutOption, ReadCartResponse, PaymentInfo } from '../../../api/';
 import { Action } from '../cart-item-list/cart-item-list.component';
+import { Observable } from 'rxjs/Rx';
+import { CartItemsGuard } from './cart-items.guard'
 
 @Component({
   selector: 'cart-items',
   templateUrl: './cart-items.component.html',
-  styleUrls: ['./cart-items.component.css']
+  styleUrls: ['./cart-items.component.css'],
 })
-export class CartItemsComponent implements OnInit {
-  cart:Promise<ReadCartResponse>
-  items:Promise<CartItem[]>;
-  payment:Promise<PaymentInfo>;
+export class CartItemsComponent {
+  cart:Observable<ReadCartResponse>
+  items:Observable<CartItem[]>;
+  payment:Observable<PaymentInfo>;
 
   delivery_opts: Promise<CheckoutOption[]>;
   payment_opts: Promise<CheckoutOption[]>;
@@ -29,23 +31,30 @@ export class CartItemsComponent implements OnInit {
   }
 
   loadCart() {
-    this.cart = this.service.readCart()
-    this.items = this.cart.then((r) => r.cartItems);
-    this.payment = this.cart.then((r) => r.payment);
+    this.cart = this.service.cart$;
+    this.items = this.cart.map((c) => c.cartItems).distinctUntilChanged();
+    this.payment = this.cart.map((r) => r.payment).distinctUntilChanged();
+    this.service.readCart();
+  }
+
+  setPaymentOpt(opt:string) {
+    //this.payment_opt = opt;
+    console.log("Payment option",opt);
+    this.service.setPayment(opt);
+  }
+
+  setDeliveryOpt(opt:string) {
+    this.service.setDelivery(opt);
   }
 
   doAction(a:Action) {
     switch (a.action) {
       case this.actions[0]:
         this.service.removeFromCart(a.item.productId)
-        .then((r) => this.loadCart());
         break;
       default:
         console.log(a.action, a.item);
     }
-  }
-
-  ngOnInit() {
   }
 
 }
