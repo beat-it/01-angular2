@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 body{
     background: #f5f5f5;
     font-family: 'Lato', sans-serif;
@@ -12,6 +11,7 @@ body{
 
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 
 .clear{
@@ -28,6 +28,7 @@ a{
 
 .text-right{
     text-align: right;
+
 }
 
 .text-center{
@@ -69,9 +70,9 @@ a{
 
 .row .block h2{
     font-family: 'Dosis', sans-serif;
-    color: #d09683;
+    color: #D1894E;
     padding: 5px 0 10px 0;
-    border-bottom: 1px dashed #d09683;
+    border-bottom: 1px dashed #D1894E;
     margin: 0 0 10px 0;
 }
 
@@ -112,11 +113,15 @@ nav ul li a{
 }
 
 #cart-container{
-    background: url("../images/cart-icon.png") no-repeat 13px center #73605b;
+    background: url("../images/cart-icon.png") no-repeat 13px center #5d4c46;
     float: right;
     padding: 10px 25px 10px 45px;
     border-radius: 20px;
     color: #FFF;
+}
+
+#cart-container:hover{
+    background-color: #D1894E;
 }
 
 #cart-container a{
@@ -126,8 +131,8 @@ nav ul li a{
 #banner-container{
     width: 100%;
     background: url("http://placehold.it/1500x450") no-repeat center;
-    height: 200px;
-    line-height: 200px;
+    height: 400px;
+    line-height: 400px;
     text-align: center;
     font-size: 2.5em;
     color: #FFF;
@@ -175,7 +180,7 @@ nav ul li a{
     box-shadow: none;
 }
 
-#search-container input[type='submit'], #search-container button {
+#search-container button{
     float:right;
     background:none;
     border: 1px solid #555555;
@@ -210,10 +215,14 @@ nav ul li a{
     margin: 0;
     padding: 0;
     font-family: 'Dosis', sans-serif;
-    color: #d09683;
+    color: #D1894E;
     font-weight: 600;
     font-size: 25px;
     text-align: center;
+}
+
+.products-container .product .image-container{
+    min-height: 250px;
 }
 
 .products-container .product .image-container img{
@@ -241,7 +250,7 @@ nav ul li a{
 
 .products-container .product .price{
     font-weight: bold;
-    color: #73605B;
+    color: #5d4c46;
     font-size: 25px;
     float: left;
     position: relative;
@@ -252,11 +261,15 @@ nav ul li a{
 .products-container .product .add-to-cart-button{
     display: block;
     width: 150px;
-    background: #73605b;
+    background: #5d4c46;
     padding: 10px;
     color: #fff;
     border-radius: 20px;
     float: right;
+}
+
+.products-container .product .add-to-cart-button:hover {
+    background: #D1894E;
 }
 
 .products-container .product .description-container{
@@ -272,7 +285,7 @@ nav ul li a{
 }
 
 .products-container .product .description-container h4{
-    color: #d09683;
+    color: #D1894E;
     font-weight: 600;
     font-size: 25px;
 }
@@ -302,7 +315,7 @@ nav ul li a{
 #stepper-container ul{
     margin: 0;
     padding: 0;
-    background: #363237;
+    background: #5d4c46;
     border-radius: 5px;
 }
 
@@ -332,7 +345,7 @@ nav ul li a{
 
 
 #stepper-container ul li.active a{
-    background: #73605b;
+    background: #D1894E;
 }
 
 table#cart-items{
@@ -342,7 +355,7 @@ table#cart-items{
 }
 
 table#cart-items thead th{
-    background: #555555;
+    background: #5d4c46;
     padding: 10px 5px;
     color: #fff;
 }
@@ -384,7 +397,7 @@ table#cart-items td{
 }
 
 #payment-delivery-container .block ul li .price{
-    color: #d09683;
+    color: #D1894E;
     font-weight: bold;
     padding-left: 10px;
     font-size: 18px;
@@ -411,7 +424,7 @@ table#cart-items td{
 
 #price-summary-container table tr.total-price td{
     font-weight: bold;
-    color: #d09683;
+    color: #D1894E;
     font-size: 18px;
     border-top: 1px solid #cacaca;
 }
@@ -422,7 +435,7 @@ table#cart-items td{
 
 #cart-buttons-container .button-cart-continue{
     padding: 10px 50px;
-    background: #73605b;
+    background: #5d4c46;
     color: #fff;
     font-weight: bold;
     font-size: 18px;
@@ -447,6 +460,11 @@ table#cart-items td{
     border: 1px solid #cacaca;
 }
 
+#cart-contact-container input[type='text']:focus{
+    border: 1px solid #D1894E;
+}
+
+
 #cart-contact-container input[type='text'].warning{
     border: 1px solid #ca2718;
 }
@@ -455,7 +473,7 @@ table#cart-items td{
 #billing-type-container{
     font-size: 16px;
     font-weight: bold;
-    border-bottom: 1px dashed #d09683;
+    border-bottom: 1px dashed #D1894E;
     padding: 10px 0;
 }
 
@@ -465,5 +483,11 @@ table#cart-items td{
 
 #delivery-switch-container{
     font-size: 16px;
+    font-weight: bold;
+}
+
+#no-items{
+    text-align: center;
+    font-size: 18px;
     font-weight: bold;
 }
