@@ -3,7 +3,6 @@ import { CartService } from '../cart.service';
 import { CartItem, CheckoutOption, ReadCartResponse, PaymentInfo } from '../../../api/';
 import { Action } from '../cart-item-list/cart-item-list.component';
 import { Observable } from 'rxjs/Rx';
-import { CartItemsGuard } from './cart-items.guard'
 
 @Component({
   selector: 'cart-items',
@@ -28,6 +27,7 @@ export class CartItemsComponent {
     this.delivery_opts = co_opts.then((r) => r.delivery_opts);
     this.payment_opts = co_opts.then((r) => r.payment_opts);
     this.loadCart();
+    
   }
 
   loadCart() {
