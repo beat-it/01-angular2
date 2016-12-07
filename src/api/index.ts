@@ -37,32 +37,33 @@ export type AddToCartResponse = CartInfo;
 export type CartInfoResponse = AddToCartResponse
 
 export interface Address {
-  address: string;
+  street: string;
   city: string;
   zip: string;
   country: string;
 }
 
-export interface BillingAddress extends Address {
+export interface BillingAddress {
+  billingAddress: Address,
   company?: {
     name: string;
     dic?: string;
     ico: string;
-    ic_dph?: string;
+    icDph?: string;
   };
 }
 
 export interface BillingData {
-  delivery: string;
-  payment: string;
+  deliveryType?: string;
+  paymentMethod?: string;
   person: {
-    first_name: string;
+    forename: string;
     surname: string;
     email: string;
     phone?: string;
   };
-  billing_address: BillingAddress;
-  delivery_address?: Address;
+  billingAddress: BillingAddress;
+  address?: Address;
 }
 
 export interface CartItem extends Product {
@@ -83,7 +84,6 @@ export interface PaymentInfo {
 export interface ReadCartResponse extends Response {
   cartItems: CartItem[];
   payment: PaymentInfo;
-
 }
 
 export interface CheckoutOption {
