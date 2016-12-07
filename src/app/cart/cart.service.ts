@@ -3,7 +3,8 @@ import { Http } from '@angular/http'
 import * as be from '../backend';
 import {
   ReadCartResponse, AddToCartRequest, AddToCartResponse,
-  CartInfoResponse, Response, CheckoutOptionsResponse, CartItem, CartInfo, CheckoutOption
+  CartInfoResponse, Response, CheckoutOptionsResponse, CartItem, CartInfo, CheckoutOption,
+  BillingData,
 } from '../../api';
 import { delay } from '../util';
 import { Observable, BehaviorSubject } from 'rxjs/Rx';
@@ -94,15 +95,26 @@ export class CartService implements OnInit {
   }
 
   setDelivery(deliveryType: string):Promise<ReadCartResponse> {
-    return this.backend.put(`/cart`, {deliveryType, paymentMethod: this._cart.value.payment.paymentMethod})
-      .do((r) => this.updateCart(r))
-      .toPromise();
+    return this.putCart(this.withDeliveryOptions({deliveryType}));
   }
 
   setPayment(paymentMethod: string):Promise<ReadCartResponse> {
-    return this.backend.put(`/cart`, {deliveryType: this._cart.value.payment.deliveryType, paymentMethod})
+    return this.putCart(this.withDeliveryOptions(paymentMethod));
+  }
+
+  private withDeliveryOptions(o:any) {
+    const {deliveryType, paymentMethod} = this._cart.value.payment;
+    return Object.assign({deliveryType, paymentMethod},o);
+  }
+
+  private putCart(body:any):Promise<ReadCartResponse> {
+    return this.backend.put(`/cart`, body)
       .do((r) => this.updateCart(r))
-      .toPromise();
+      .toPromise();    
+  }
+
+  updateBillingData(data:BillingData): Promise<ReadCartResponse> {
+    return this.putCart(this.withDeliveryOptions(data));
   }
 
   isPaymentSet() {
