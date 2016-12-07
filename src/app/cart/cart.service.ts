@@ -99,7 +99,7 @@ export class CartService implements OnInit {
   }
 
   setPayment(paymentMethod: string):Promise<ReadCartResponse> {
-    return this.putCart(this.withDeliveryOptions(paymentMethod));
+    return this.putCart(this.withDeliveryOptions({paymentMethod}));
   }
 
   private withDeliveryOptions(o:any) {

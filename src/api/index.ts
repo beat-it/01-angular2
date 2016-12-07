@@ -52,16 +52,17 @@ export interface BillingAddress {
     icDph?: string;
   };
 }
-
-export interface BillingData {
-  deliveryType?: string;
-  paymentMethod?: string;
-  person: {
+export type Person = {
     forename: string;
     surname: string;
     email: string;
     phone?: string;
   };
+
+export interface BillingData {
+  deliveryType?: string;
+  paymentMethod?: string;
+  person: Person;
   billingAddress: BillingAddress;
   address?: Address;
 }
@@ -84,6 +85,9 @@ export interface PaymentInfo {
 export interface ReadCartResponse extends Response {
   cartItems: CartItem[];
   payment: PaymentInfo;
+  person?: Person;
+  billingDetails?: BillingAddress;
+  address: Address;
 }
 
 export interface CheckoutOption {

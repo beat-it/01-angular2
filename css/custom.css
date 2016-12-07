@@ -180,7 +180,7 @@ nav ul li a{
     box-shadow: none;
 }
 
-#search-container button{
+#search-container input[type='submit'], #search-container button {
     float:right;
     background:none;
     border: 1px solid #555555;
