@@ -68,7 +68,7 @@ export class CartService implements OnInit {
 
   addToCart(req: AddToCartRequest): Promise<AddToCartResponse> {
     return this.backend.post(`/cart/items`, req)
-      .do((r) => this.cartInfo())
+      .do((r) => this.readCart())
       .toPromise();
   }
 

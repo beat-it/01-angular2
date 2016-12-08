@@ -87,7 +87,7 @@ export interface ReadCartResponse extends Response {
   payment: PaymentInfo;
   person?: Person;
   billingDetails?: BillingAddress;
-  address: Address;
+  address?: Address;
 }
 
 export interface CheckoutOption {
