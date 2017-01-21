@@ -18,7 +18,7 @@ const routes:Routes = [
 ];
 
 const backendConfig : BackendConfig = {
-  baseUrl: "http://localhost:8080/service"
+  baseUrl: "http://localhost:8080/eshop/service"
 }
 
 @NgModule({

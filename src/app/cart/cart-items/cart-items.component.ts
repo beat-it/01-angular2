@@ -20,7 +20,7 @@ export class CartItemsComponent {
   delivery_opt: CheckoutOption;
   payment_opt: CheckoutOption;
 
-  readonly actions=['Vymazať'];
+  readonly actions=['Vymazať', '+', '-'];
 
   constructor(private service:CartService) {
     var co_opts = service.checkoutOptions();
@@ -51,6 +51,12 @@ export class CartItemsComponent {
     switch (a.action) {
       case this.actions[0]:
         this.service.removeFromCart(a.item.productId)
+        break;
+      case this.actions[1]:
+        this.service.addToCart({productId: a.item.productId, quantity:1});
+        break;
+      case this.actions[2]:
+        this.service.addToCart({productId: a.item.productId, quantity:-1});
         break;
       default:
         console.log(a.action, a.item);
